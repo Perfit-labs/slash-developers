@@ -67,13 +67,13 @@ Contentful uses HTTP headers to inform users how they're rate limited, what thei
 
 Header                                    | Status Code                                   | Description
 ------------------------------------------|-----------------------------------------------|----------------------------------------------------
-`x-contentful-ratelimit-hour-limit`       | All requests.                                 | The hourly rate limit.
-`x-contentful-ratelimit-hour-remaining`   | All requests.                                 | The number of requests remaining before the hourly rate limits are enforced.
-`x-contentful-ratelimit-second-limit`     | All requests.                                 | The per second rate limit.
-`x-contentful-ratelimit-second-remaining` | All requests.                                 | The number of requests remaining before the per second rate limits are enforced.
-`x-contentful-ratelimit-reset`            | `429` Returned only for rate limited requests.| The number of seconds until the next request can be made.
+`X-Contentful-RateLimit-Hour-Limit`       | All requests.                                 | The hourly rate limit.
+`X-Contentful-RateLimit-Hour-Remaining`   | All requests.                                 | The number of requests remaining before the hourly rate limits are enforced.
+`X-Contentful-RateLimit-Second-Limit`     | All requests.                                 | The per second rate limit.
+`X-Contentful-RateLimit-Second-Remaining` | All requests.                                 | The number of requests remaining before the per second rate limits are enforced.
+`X-Contentful-RateLimit-Reset`            | All requests.                                 | The number of seconds until the next request can be made.
 
-It's important to note that the `x-contentful-ratelimit-reset` header does _not_ return the time until the next full reset. Instead it tells you when the next request can be made. If a per second rate limit is enforced it will return 1 (time until the next second). If an hourly rate limit is enforced it will return the time until the next sliding window.
+It's important to note that the `X-Contentful-RateLimit-Reset` header does _not_ return the time until the next full reset. Instead it tells you when the next request can be made. If a per second rate limit is enforced it will return 1 (time until the next second). If an hourly rate limit is enforced it will return the time until the next sliding window. If no limits are enforced it returns 0.
 
 -:[Common Resource Attribute](_partials/cma/resource-attributes.apib)
 
