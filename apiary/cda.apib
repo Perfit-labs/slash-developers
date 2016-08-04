@@ -31,8 +31,6 @@ Header                            | Status Code                                 
 
 It's important to note that the `X-Contentful-RateLimit-Reset` header does _not_ return the time until the next full reset. Instead it tells you when the next request can be made. If a per second rate limit is enforced it will return `1` (time until the next second). If an hourly rate limit is enforced it will return the time until the next sliding window.
 
-
-## Common resource attributes
 :[Common Resource Attributes](_partials/cda/resource-attributes.apib apiname:"Content Delivery API")
 
 Every resource returned by the Content Delivery API will have a `sys` property, which is an object containing system managed metadata. The exact metadata available depends on the type of the resource, but at minimum the `sys.type` property is defined.
